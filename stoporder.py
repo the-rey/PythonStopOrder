@@ -30,7 +30,7 @@ class CheckStopOrders(threading.Thread):
                     price = currentPrice
                     if price <= STOP_ORDERS[0].price:
                         print("selling ", STOP_ORDERS[0].amount, " bitcoin for", price)
-                        #ASSUMPTION: the stop order is smaller then current offer
+                        #ASSUMPTION: the stop order is smaller than current offer
                         STOP_ORDERS.pop(0)
                 if STOP_BUY_ORDERS:
                     price = currentPrice
