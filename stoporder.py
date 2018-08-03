@@ -63,6 +63,8 @@ STOP_BUY_ORDERS = [STOP_BUY_1, STOP_BUY_2, STOP_BUY_3]
 STOP_ORDERS.sort(key=lambda x: x.price, reverse=True)
 STOP_BUY_ORDERS.sort(key=lambda x: x.price, reverse=False)
 
+print(STOP_BUY_ORDERS[0].price)
+
 THREAD_1 = GenerateRandomPrice(100, 100)
 THREAD_2 = CheckStopOrders()
 
