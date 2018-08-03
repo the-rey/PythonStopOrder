@@ -59,14 +59,14 @@ class RunOrders(threading.Thread):
             else:
                 if BUY_ORDERS_QUEUE:
                     if current_price <= BUY_ORDERS_QUEUE[0].price:
-                        print("[SUCCESS BUY] ", BUY_ORDERS_QUEUE[0].amount/current_price, " of bitcoin for ", current_price, " >> ", BUY_ORDERS_QUEUE[0].amount)
+                        print("[SUCCESS BUY] ", BUY_ORDERS_QUEUE[0].amount/current_price, " bitcoin for ", current_price, " >> ", BUY_ORDERS_QUEUE[0].amount)
                         TRANSACTION_PRICES.append(current_price)
                         BUY_ORDERS_QUEUE.pop(0)
                 else:
                     THREAD_GENERATE_PRICE.direction += 0.00001
                 if SELL_ORDERS_QUEUE:
                     if current_price >= SELL_ORDERS_QUEUE[0].price:
-                        print("[SUCCESS SELL] ", SELL_ORDERS_QUEUE[0].amount, " of bitcoin for ", current_price, " >> ", SELL_ORDERS_QUEUE[0].amount)
+                        print("[SUCCESS SELL] ", SELL_ORDERS_QUEUE[0].amount, " of bitcoin for ", current_price, " >> ", SELL_ORDERS_QUEUE[0].amount*current_price)
                         TRANSACTION_PRICES.append(current_price)
                         SELL_ORDERS_QUEUE.pop(0)
                 else:
